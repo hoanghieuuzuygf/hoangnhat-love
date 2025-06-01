@@ -3,60 +3,68 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Tặng Vợ Hoàng Nhật 💖</title>
+  <title>Thư Tình Dành Tặng Vợ</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: url('https://i.imgur.com/zx0I06L.jpg') no-repeat center center fixed;
-      background-size: cover;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      color: white;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      height: 100vh;
-    }
-    .container {
-      background-color: rgba(0,0,0,0.5);
-      margin: 20px;
-      padding: 30px;
-      border-radius: 15px;
+      padding: 2rem;
+      background: #ffe6e6;
+      color: #333;
     }
     h1 {
-      margin-bottom: 20px;
-      font-size: 2.5em;
-      color: #ff6f91;
+      color: #d6336c;
     }
-    p {
+    .message {
       white-space: pre-line;
-      font-size: 1.3em;
-      margin-bottom: 30px;
+      font-size: 1.2rem;
+      margin: 1rem 0 2rem;
     }
-    audio {
-      outline: none;
-      width: 90%;
-      max-width: 400px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #ff6f91;
+    button {
+      background-color: #d6336c;
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    button:hover {
+      background-color: #b82e58;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Gửi Vợ Hoàng Nhật 💖</h1>
-    <p>
-Chúc Vợ muộn ngày 1/6 vui vẻ nhée.
-
-Anh yêu vợ nhiều lắm luôn áa.
-
-Vợ Hoàng Nhật mãi mãi luôn bên cạnh anh nhée.
-    </p>
-    <audio controls autoplay loop>
-      <source src="https://drive.google.com/uc?export=download&id=10teOWHganeLlzjnAfrww7-ymE5iH4E73" type="audio/mpeg" />
-      Trình duyệt của bạn không hỗ trợ audio.
-    </audio>
+  <h1>Thư Tình Gửi Vợ Hoàng Nhật</h1>
+  <div class="message">
+    Chúc Vợ muộn ngày 1/6 vui vẻ nhée.<br/>
+    Anh yêu vợ nhiều lắm luôn áa.<br/>
+    Vợ Hoàng Nhật mãi mãi luôn bên cạnh anh nhée.
   </div>
+
+  <button id="toggle-music">Phát Nhạc</button>
+
+  <audio id="bg-music" loop>
+    <source src="https://drive.google.com/uc?export=download&id=10teOWHganeLlzjnAfrww7-ymE5iH4E73" type="audio/mpeg" />
+    Trình duyệt không hỗ trợ phát nhạc.
+  </audio>
+
+  <script>
+    const music = document.getElementById('bg-music');
+    const btn = document.getElementById('toggle-music');
+    let playing = false;
+
+    btn.addEventListener('click', () => {
+      if (playing) {
+        music.pause();
+        btn.textContent = 'Phát Nhạc';
+      } else {
+        music.play();
+        btn.textContent = 'Tạm Dừng Nhạc';
+      }
+      playing = !playing;
+    });
+  </script>
 </body>
 </html>
