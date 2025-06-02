@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -9,34 +10,40 @@
 
     body {
       margin: 0;
-      padding: 0;
+      padding: 1rem;
       font-family: 'Great Vibes', cursive;
-      background: linear-gradient(to right, #ffe0f0, #fffafc);
+      background: url('bg.jpg') no-repeat center center fixed;
+      background-size: cover;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       min-height: 100vh;
       text-align: center;
-      overflow: hidden;
-      position: relative;
+      overflow-x: hidden;
+      box-sizing: border-box;
     }
 
     h1 {
-      font-size: 3.5rem;
+      font-size: 2.5rem;
       color: #e91e63;
       margin-bottom: 1rem;
+      background: rgba(255,255,255,0.8);
+      border-radius: 12px;
+      padding: 0.5rem 1rem;
     }
 
     .message {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       color: #444;
-      max-width: 650px;
-      padding: 2rem;
+      width: 100%;
+      max-width: 600px;
+      padding: 1.5rem;
       background-color: rgba(255, 255, 255, 0.85);
       border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-      line-height: 2;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
+      box-sizing: border-box;
       z-index: 2;
     }
 
@@ -51,6 +58,7 @@
       cursor: pointer;
       box-shadow: 0 4px 15px rgba(0,0,0,0.2);
       transition: background 0.3s;
+      z-index: 2;
     }
 
     button:hover {
@@ -64,7 +72,7 @@
       width: 100%;
       height: 100%;
       pointer-events: none;
-      z-index: 1;
+      z-index: 0;
     }
 
     .heart {
@@ -80,6 +88,20 @@
       0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
       50% { opacity: 1; }
       100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+    }
+
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1.2rem;
+        padding: 1rem;
+      }
+      button {
+        font-size: 1rem;
+        padding: 0.6rem 1.5rem;
+      }
     }
   </style>
 </head>
