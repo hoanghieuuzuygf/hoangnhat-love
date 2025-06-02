@@ -3,68 +3,81 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Thư Tình Gửi Vợ</title>
+  <title>Gửi Vợ Hoàng Nhật</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      font-family: 'Great Vibes', cursive;
+      background: linear-gradient(to right, #ffe0e9, #fff4f8);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
       text-align: center;
-      padding: 2rem;
-      background: #fff0f5;
-      color: #333;
     }
     h1 {
+      font-size: 3rem;
       color: #d6336c;
+      margin-bottom: 1rem;
     }
     .message {
-      white-space: pre-line;
-      font-size: 1.2rem;
-      margin: 1.5rem 0 2.5rem;
+      font-size: 1.5rem;
+      color: #444;
+      max-width: 600px;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      line-height: 1.8;
     }
-    button {
-      background-color: #d6336c;
-      color: white;
-      border: none;
-      padding: 1rem 2rem;
-      font-size: 1.1rem;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
     }
-    button:hover {
-      background-color: #b82e58;
+    .heart {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      animation: float 10s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 0; }
+      50% { opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>Gửi Vợ Hoàng Nhật 💌</h1>
+  <h1>Gửi Vợ Hoàng Nhật 💖</h1>
   <div class="message">
     Chúc Vợ muộn ngày 1/6 vui vẻ nhée.<br/>
     Anh yêu vợ nhiều lắm luôn áa.<br/>
     Vợ Hoàng Nhật mãi mãi luôn bên cạnh anh nhée.
   </div>
-
-  <button id="toggle-music">Phát Nhạc</button>
-
-  <audio id="bg-music" loop>
+  <audio autoplay loop>
     <source src="nhac_hoangnhat.mp3" type="audio/mpeg" />
-    Trình duyệt không hỗ trợ phát nhạc.
+    Trình duyệt của bạn không hỗ trợ phát nhạc.
   </audio>
-
-  <script>
-    const music = document.getElementById('bg-music');
-    const btn = document.getElementById('toggle-music');
-    let playing = false;
-
-    btn.addEventListener('click', () => {
-      if (playing) {
-        music.pause();
-        btn.textContent = 'Phát Nhạc';
-      } else {
-        music.play();
-        btn.textContent = 'Tạm Dừng Nhạc';
+  <div class="hearts">
+    <script>
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDelay = Math.random() * 10 + 's';
+        document.querySelector('.hearts').appendChild(heart);
       }
-      playing = !playing;
-    });
-  </script>
+    </script>
+  </div>
 </body>
 </html>
